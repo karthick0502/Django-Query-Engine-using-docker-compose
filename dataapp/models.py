@@ -10,5 +10,5 @@ class UploadedFile(models.Model):
 
 class FileData(models.Model):
     uploaded_file = models.ForeignKey(UploadedFile, on_delete=models.CASCADE, related_name='file_data')
-    name = models.CharField(max_length=255)
-    value = models.CharField(max_length=255)
+    name = models.TextField()
+    value = models.TextField()

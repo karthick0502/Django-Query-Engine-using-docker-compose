@@ -8,9 +8,27 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.db.models import Q
 
-from .forms import UploadFileForm
+from .forms import UploadFileForm, DataFilterForm
+from django.views import View
 from .models import UploadedFile, FileData
 import traceback
+
+
+class FilteredDataView(View):
+    def get(self, request):
+        form = DataFilterForm(request.GET or None)
+        item = request.GET.get('type', None)
+
+        if item:
+            filtered_data = FileData.objects.filter(Q(name__icontains=item) | Q(value__icontains=item))
+        else:
+            filtered_data = FileData.objects.all()
+
+        if request.headers.get('Accept') == 'application/json':
+            data_list = list(filtered_data.values())
+            return JsonResponse(data_list, safe=False)
+        else:
+            return render(request, 'filter.html', {'form': form, 'data': list(filtered_data.values())})
 
 
 def handle_uploaded_file(uploaded_file):
@@ -65,7 +83,7 @@ def upload_file(request):
                 uploaded_file = form.cleaned_data['file']
                 handle_uploaded_file(uploaded_file)
                 # messages.success(request, 'File uploaded successfully!')
-                return redirect('query')
+                return redirect('filtered_data')
             except Exception as e:
                 print("Exception occurred. Details:", str(e), "Traceback:", traceback.format_exc())
                 messages.error(request, f"{e}")
@@ -78,21 +96,21 @@ def upload_file(request):
         return render(request, 'upload.html', {'form': form})
 
 
-@csrf_exempt
-def query_data(request):
-    item = request.GET.get('type', None)
-    if item:
-        # files = FileData.objects.filter(value__icontains=item)
-        files = FileData.objects.filter(Q(name__icontains=item) | Q(value__icontains=item))
-    else:
-        files = FileData.objects.all()
-
-    data = []
-    for fd in files:
-        data.append({
-            'uploaded_file': fd.uploaded_file.file.url,
-            'name': fd.name,
-            'value': fd.value
-        })
-
-    return JsonResponse(data, safe=False)
+# @csrf_exempt
+# def query_data(request):
+#     item = request.GET.get('type', None)
+#     if item:
+#         # files = FileData.objects.filter(value__icontains=item)
+#         files = FileData.objects.filter(Q(name__icontains=item) | Q(value__icontains=item))
+#     else:
+#         files = FileData.objects.all()
+#
+#     data = []
+#     for fd in files:
+#         data.append({
+#             'uploaded_file': fd.uploaded_file.file.url,
+#             'name': fd.name,
+#             'value': fd.value
+#         })
+#
+#     return JsonResponse(data, safe=False)

@@ -12,3 +12,9 @@ class UploadFileForm(forms.Form):
                 raise forms.ValidationError('Invalid file Type. File must be a CSV or JSON.')
         return file
 
+
+class DataFilterForm(forms.Form):
+    type = forms.CharField(required=False,
+                           label='Type',
+                           widget=forms.TextInput(attrs={'placeholder': 'Enter type to filter'})
+                           )

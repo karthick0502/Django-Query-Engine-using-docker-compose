@@ -17,11 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from dataapp.views import upload_file, query_data
+from dataapp.views import upload_file, FilteredDataView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', upload_file, name='upload'),
-    path('query/', query_data, name='query'),
+    path('filter/', FilteredDataView.as_view(), name='filtered_data'),
 ]
 
