@@ -140,4 +140,5 @@ dmypy.json
 cython_debug/
 
 venv_klarian/
+.idea/
 
