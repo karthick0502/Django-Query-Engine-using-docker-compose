@@ -53,7 +53,15 @@ Open your browser and navigate to `http://localhost:8000`. You will find two URL
 
 **File Upload**: The home URL (`http://localhost:8000`) takes you to the file upload screen. You can upload JSON or CSV files here. If you try to upload other file types, the application will not allow it.
 
-**Filter Data**: After uploading, you will be redirected to the second URL (`http://localhost:8000/filter/`), where you can see all the data from the uploaded file. Use the search box to find specific data records. Enter your search term and filter the data as required.
+**Filter Data**: After uploading, you will be redirected to the second URL (`http://localhost:8000/filter/`), where you can see all the data from the uploaded file. Use the search box to find specific data records. 
+
+orelse filter the data by parsing filter parameter called type in the url endpoints,
+
+1. Open your web browser and navigate to the following URL: (`http://localhost:8000/filter/?type=<search_data>`) Replace `<search_data>` with the term you want to search for in the dataset.
+
+2. For example, if you want to filter records containing the word 'coffee', use: (`http://localhost:8000/filter/?type=coffee`)
+
+3. If the entered search data matches any records in the dataset, only those records will be displayed. If no matching records are found, an empty result set will be returned.
 
 ### Step 6: Get Data as JSON
 
