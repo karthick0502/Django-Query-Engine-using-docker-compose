@@ -1,0 +1,9 @@
+# .dockerignore
+venv_klarian/
+__pycache__
+*.pyo
+.Python
+.env
+db.sqlite3
+.idea/
+.gitignore
