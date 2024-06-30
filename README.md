@@ -49,6 +49,8 @@ Open your browser and navigate to `http://localhost:8000`. You will find two URL
 - `http://localhost:8000` - File upload
 - `http://localhost:8000/filter/` - Filter data from the uploaded file content
 
+**Samples**: Some sample input files are provided to upload in the project directory.
+
 **File Upload**: The home URL (`http://localhost:8000`) takes you to the file upload screen. You can upload JSON or CSV files here. If you try to upload other file types, the application will not allow it.
 
 **Filter Data**: After uploading, you will be redirected to the second URL (`http://localhost:8000/filter/`), where you can see all the data from the uploaded file. Use the search box to find specific data records. Enter your search term and filter the data as required.
