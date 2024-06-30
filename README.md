@@ -1,6 +1,5 @@
 # SETUP TO RUN THE DJANGO PROJECT VIA DOCKER COMPOSE
 
-```markdown
 # Klarian Query Engine
 
 ## Overview
@@ -87,4 +86,3 @@ To query the data:
 SELECT * FROM dataapp_filedata;
 ```
 If you have any questions or encounter any issues, feel free to open an issue on the [GitHub repository](https://github.com/karthick0502/klarian/issues).
-```
