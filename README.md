@@ -6,6 +6,8 @@
 
 This project is a Django application that allows users to upload and filter data from JSON and CSV files. The application uses PostgreSQL as the database, and Docker for containerization.
 
+Please make sure you have installed docker and made a set up on your machine. 
+
 ## Steps to Test the Application
 
 ### Step 1: Clone the Project
