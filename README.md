@@ -93,6 +93,14 @@ To see all the tables:
 ```
 To query the data:
 ```sql
+SELECT * FROM dataapp_uploadedfile;
 SELECT * FROM dataapp_filedata;
+```
+
+### Step 8: stop the running Docker Containers
+
+Run the following command to stop the Docker containers:
+```sh
+docker-compose down
 ```
 If you have any questions or encounter any issues, feel free to open an issue on the [GitHub repository](https://github.com/karthick0502/klarian/issues).
