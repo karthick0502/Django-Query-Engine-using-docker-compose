@@ -5,6 +5,7 @@
 ## Overview
 
 This project is a Django application that allows users to upload and filter data from JSON and CSV files. The application uses PostgreSQL as the database, and Docker for containerization.
+Please make sure you have installed docker and made a set up on your machine. 
 
 ## Steps to Test the Application
 
@@ -93,6 +94,14 @@ To see all the tables:
 ```
 To query the data:
 ```sql
+SELECT * FROM dataapp_uploadedfile;
 SELECT * FROM dataapp_filedata;
+```
+
+### Step 8: stop the running Docker Containers
+
+Run the following command to stop the Docker containers:
+```sh
+docker-compose down
 ```
 If you have any questions or encounter any issues, feel free to open an issue on the [GitHub repository](https://github.com/karthick0502/klarian/issues).

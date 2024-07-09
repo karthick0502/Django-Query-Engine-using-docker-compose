@@ -21,6 +21,7 @@ class FilteredDataView(View):
 
         if item:
             filtered_data = FileData.objects.filter(Q(name__icontains=item))
+            filtered_data = FileData.objects.filter(Q(name__icontains=item) | Q(value__icontains=item))
         else:
             filtered_data = FileData.objects.all()
 
