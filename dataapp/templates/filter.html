@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filtered Data</title>
+</head>
+<body>
+    <h1>Filter Data</h1>
+    <form method="get" action="{% url 'filtered_data' %}">
+        {{ form.as_p }}
+        <button type="submit">Filter</button>
+    </form>
+    {{data}}
+</body>
+</html>

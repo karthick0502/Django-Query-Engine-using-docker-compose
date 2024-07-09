@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: mysuperdata
+      POSTGRES_USER: mysuperdatauser
+      POSTGRES_PASSWORD: mysuperdatapassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  djangoapp:
+    build: .
+    volumes:
+      - .:/klarian  # Mount the entire current directory to /klarian in the container
+    ports:
+      - 8000:8000
+    image: djangoapp:klarian_query_engine
+    container_name: MySuperDataCompanyInc
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
