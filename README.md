@@ -14,14 +14,14 @@ Please make sure you have installed docker and made a set up on your machine.
 
 Open your command prompt and clone the project to your desired folder using the following command:
 ```sh
-git clone https://github.com/karthick0502/klarian.git
+git clone https://github.com/karthick0502/Django-Query-Engine-using-docker-compose.git
 ```
 
 ### Step 2: Navigate to the Project Directory
 
 Change to the project directory:
 ```sh
-cd klarian
+cd Django-Query-Engine-using-docker-compose
 ```
 Here you will find all the project files, including the `Dockerfile` and `docker-compose.yml` file.
 
